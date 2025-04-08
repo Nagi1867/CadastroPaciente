@@ -21,4 +21,8 @@ public class PacienteService {
         Optional<Paciente> obj = repository.findById(id);
         return obj.get();
     }
+
+    public Paciente insert(Paciente obj) {
+        return repository.save(obj);
+    }
 }
