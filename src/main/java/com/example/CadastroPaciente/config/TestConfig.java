@@ -1,6 +1,7 @@
 package com.example.CadastroPaciente.config;
 
 import com.example.CadastroPaciente.entities.Paciente;
+import com.example.CadastroPaciente.enums.Status;
 import com.example.CadastroPaciente.repositories.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -15,7 +16,7 @@ public class TestConfig implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Paciente paciente = new Paciente(null, "Joseph", "0949043409", 1);
+        Paciente paciente = new Paciente(null, "Joseph", "0949043409", Status.ATIVO);
 
         repository.save(paciente);
     }
