@@ -25,4 +25,8 @@ public class PacienteService {
     public Paciente insert(Paciente obj) {
         return repository.save(obj);
     }
+
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
 }
