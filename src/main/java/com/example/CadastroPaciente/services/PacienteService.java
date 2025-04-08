@@ -2,6 +2,7 @@ package com.example.CadastroPaciente.services;
 
 import com.example.CadastroPaciente.entities.Paciente;
 import com.example.CadastroPaciente.repositories.PacienteRepository;
+import com.example.CadastroPaciente.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class PacienteService {
 
     public Paciente findById(Long id) {
         Optional<Paciente> obj = repository.findById(id);
-        return obj.get();
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     public Paciente insert(Paciente obj) {
