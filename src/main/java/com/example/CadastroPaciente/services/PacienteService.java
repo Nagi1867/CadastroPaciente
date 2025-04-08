@@ -29,4 +29,16 @@ public class PacienteService {
     public void delete(Long id) {
         repository.deleteById(id);
     }
+
+    public Paciente update(Long id, Paciente obj) {
+        Paciente entity = repository.getReferenceById(id);
+        updateData(entity, obj);
+        return repository.save(entity);
+    }
+
+    private void updateData(Paciente entity, Paciente obj) {
+        entity.setNome(obj.getNome());
+        entity.setIdentificacao(obj.getIdentificacao());
+        entity.setStatus(obj.getStatus());
+    }
 }
